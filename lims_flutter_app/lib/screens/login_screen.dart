@@ -1043,7 +1043,8 @@ class _LabScenePainter extends CustomPainter {
     canvas.drawPath(beaker, stroke);
     fill.color = const Color(0x6010B981);
     canvas.drawRect(const Rect.fromLTWH(160, 175, 50, 57), fill);
-    stroke.color = Colors.white.withOpacity(0.28)..strokeWidth = 1;
+    stroke.color = Colors.white.withOpacity(0.28);
+    stroke.strokeWidth = 1;
     for (final y in [160.0, 185.0, 210.0]) {
       canvas.drawLine(Offset(205, y), Offset(213, y), stroke);
     }
@@ -1062,7 +1063,8 @@ class _LabScenePainter extends CustomPainter {
         Rect.fromLTWH(x, 113, 20, 88), const Radius.circular(10));
       fill.color = tubeColors[i].withOpacity(0.12);
       canvas.drawRRect(rr, fill);
-      stroke.color = tubeColors[i].withOpacity(0.4)..strokeWidth = 1;
+      stroke.color = tubeColors[i].withOpacity(0.4)
+      stroke.strokeWidth = 1;
       canvas.drawRRect(rr, stroke);
       final h = 88 * tubeFill[i];
       fill.color = tubeColors[i].withOpacity(0.55);
@@ -1073,7 +1075,8 @@ class _LabScenePainter extends CustomPainter {
     }
 
     // Round flask (right)
-    stroke.color = const Color(0x7093C5FD)..strokeWidth = 1.2;
+    stroke.color = const Color(0x7093C5FD);
+     stroke.strokeWidth = 1.2;
     fill.color   = const Color(0x223B82F6);
     canvas.drawCircle(const Offset(350, 210), 28, fill);
     canvas.drawCircle(const Offset(350, 210), 28, stroke);
@@ -1104,13 +1107,13 @@ class _LabScenePainter extends CustomPainter {
     ];
     for (final e in [[0,1],[1,2],[1,3],[0,4]]) {
       canvas.drawLine(
-        Offset(nodes[e[0]][0], nodes[e[0]][1]),
-        Offset(nodes[e[1]][0], nodes[e[1]][1]),
+        Offset(nodes[e[0]][0] as double, nodes[e[0]][1] as double),
+        Offset(nodes[e[1]][0] as double, nodes[e[1]][1] as double),
         edgePaint);
     }
     for (final n in nodes) {
       fill.color = Color(n[3].toInt());
-      canvas.drawCircle(Offset(n[0], n[1]), n[2], fill);
+      canvas.drawCircle(Offset(n[0] as double, n[1] as double), n[2] as double, fill);
     }
     canvas.restore();
 
